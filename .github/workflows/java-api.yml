@@ -5,6 +5,7 @@ name: java-api
       - main
     paths:
       - apis/java/**
+      - .github/workflows/java-api.yml
   workflow_dispatch:
 jobs:
   docker:

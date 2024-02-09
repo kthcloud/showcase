@@ -5,7 +5,8 @@ name: go-api
       - main
     paths:
       - apis/go/**
-  workflow_dispatch:
+      - .github/workflows/go-api.yml
+      workflow_dispatch:
 jobs:
   docker:
     runs-on: ubuntu-latest

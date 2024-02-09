@@ -5,7 +5,8 @@ name: websockets-frontend
       - main
     paths:
       - websockets/**
-  workflow_dispatch:
+      - .github/workflows/websockets-frontend.yml
+      workflow_dispatch:
 jobs:
   docker:
     runs-on: ubuntu-latest
