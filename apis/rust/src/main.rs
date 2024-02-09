@@ -23,7 +23,7 @@ async fn main() -> std::io::Result<()> {
             .service(fs::Files::new("/static", "static").show_files_listing())
             .service(fs::Files::new("/favicon.ico", "static/favicon.ico"))
     })
-    .bind("0.0.0.0:8084")?
+    .bind("0.0.0.0:8080")?
     .run()
     .await
 }
