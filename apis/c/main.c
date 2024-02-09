@@ -58,7 +58,12 @@ int main()
         return 1;
 
     printf("Server running on port %d\n", PORT);
-    getchar(); // Wait for an enter keypress
+    fflush(stdout); // Flush the output buffer
+
+    while (1)
+    {
+        sleep(1); // Sleep for a second
+    }
 
     MHD_stop_daemon(daemon);
     return 0;
