@@ -1,0 +1,20 @@
+# Use an image with a C compiler
+FROM debian:buster
+
+# Install libmicrohttpd
+RUN apt-get update && apt-get install -y libmicrohttpd-dev
+
+# Copy the source files
+COPY . /usr/src/myapp
+
+# Set the working directory
+WORKDIR /usr/src/myapp
+
+# Compile the application
+RUN gcc -o myapp main.c -lmicrohttpd
+
+# Expose the port the app runs on
+EXPOSE 8080
+
+# Run the application
+CMD ["./myapp"]
