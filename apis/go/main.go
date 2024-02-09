@@ -76,6 +76,10 @@ func main() {
 		c.JSON(200, ResponseType{ID: uuid.New().String(), Name: "Hello, World!", StockholmCloudiness: getCloudiness()})
 	})
 
+	router.GET("/healthz", func(c *gin.Context) {
+		c.String(200, "ok")
+	})
+
 	// Start the server on port 8080
 	router.Run(":8080")
 }

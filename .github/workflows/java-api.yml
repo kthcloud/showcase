@@ -1,11 +1,11 @@
-name: websockets-frontend
+name: java-api
 "on":
   push:
     branches:
       - main
     paths:
-      - websockets/**
-      - .github/workflows/websockets-frontend.yml
+      - apis/java/**
+      - .github/workflows/java-api.yml
   workflow_dispatch:
 jobs:
   docker:
@@ -15,11 +15,12 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: registry.cloud.cbh.kth.se
-          username: ${{ secrets.DOCKER_USERNAME_WEBSOCKETS_FRONTEND }}
-          password: ${{ secrets.DOCKER_PASSWORD_WEBSOCKETS_FRONTEND }}
+          username: ${{ secrets.DOCKER_USERNAME_JAVA_API }}
+          password: ${{ secrets.DOCKER_PASSWORD_JAVA_API }}
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          file: ./websockets/frontend/Dockerfile
+          file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_TAG_WEBSOCKETS_FRONTEND }}
+          tags: ${{ secrets.DOCKER_TAG_JAVA_API }}
+          context: "{{defaultContext}}:apis/java"
