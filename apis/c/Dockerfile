@@ -3,7 +3,7 @@ FROM debian:bookworm
 
 # Install libmicrohttpd
 RUN apt-get update && apt-get upgrade -y && apt-get autoremove -y
-RUN apt-get install -y libmicrohttpd-dev
+RUN apt-get install -y build-essential libmicrohttpd-dev
 
 # Copy the source files
 COPY . /usr/src/myapp
