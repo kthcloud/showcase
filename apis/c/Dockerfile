@@ -1,5 +1,5 @@
 # Use an image with a C compiler
-FROM debian:buster
+FROM debian:bookworm
 
 # Install libmicrohttpd
 RUN apt-get update && apt-get install -y libmicrohttpd-dev
