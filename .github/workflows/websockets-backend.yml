@@ -6,7 +6,7 @@ name: websockets-backend
     paths:
       - websockets/**
       - .github/workflows/websockets-backend.yml
-      workflow_dispatch:
+  workflow_dispatch:
 jobs:
   docker:
     runs-on: ubuntu-latest
