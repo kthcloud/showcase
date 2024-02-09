@@ -1,0 +1,26 @@
+name: js-api
+"on":
+  push:
+    branches:
+      - main
+    paths:
+      - apis/js/**
+      - .github/workflows/js-api.yml
+  workflow_dispatch:
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          registry: registry.cloud.cbh.kth.se
+          username: ${{ secrets.DOCKER_USERNAME_JS_API }}
+          password: ${{ secrets.DOCKER_PASSWORD_JS_API }}
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_TAG_JS_API }}
+          context: "{{defaultContext}}:apis/js"
