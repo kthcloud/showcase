@@ -3,6 +3,8 @@ name: websockets-frontend
   push:
     branches:
       - main
+    paths:
+      - websockets/**
   workflow_dispatch:
 jobs:
   docker:
