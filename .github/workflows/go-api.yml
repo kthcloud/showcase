@@ -23,4 +23,4 @@ jobs:
           file: ./apis/go/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_TAG_GO_API }}
-          context: /apis/go
+          context: "{{defaultContext}}:/apis/go"
