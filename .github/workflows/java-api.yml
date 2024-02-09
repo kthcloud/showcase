@@ -20,7 +20,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          file: ./apis/java/Dockerfile
+          file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_TAG_JAVA_API }}
           context: "{{defaultContext}}/apis/java"
