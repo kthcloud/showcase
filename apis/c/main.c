@@ -1,6 +1,7 @@
 #include <microhttpd.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 #define PORT 8080
 
