@@ -18,11 +18,12 @@ async fn main() -> std::io::Result<()> {
     HttpServer::new(|| {
         App::new()
             .route("/", web::get().to(index))
+            .route("/healthz", web::get().to(|| HttpResponse::Ok()))
             .route("/v1/resource", web::get().to(resource))
             .service(fs::Files::new("/static", "static").show_files_listing())
             .service(fs::Files::new("/favicon.ico", "static/favicon.ico"))
     })
-    .bind("0.0.0.0:8080")?
+    .bind("0.0.0.0:8084")?
     .run()
     .await
 }
