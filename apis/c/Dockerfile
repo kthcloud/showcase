@@ -12,10 +12,10 @@ COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
 
 # Compile the application
-RUN gcc -o myapp main.c -lmicrohttpd
+RUN make
 
 # Expose the port the app runs on
 EXPOSE 8080
 
 # Run the application
-CMD ["./myapp"]
+CMD ["./main"]
