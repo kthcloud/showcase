@@ -5,8 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.UUID;
 
 @SpringBootApplication
 @RestController
@@ -29,9 +31,9 @@ public class Api1Application {
         return "OK";
     }
 
-    @GetMapping("/hello")
-    public String hello() {
-        var random = ThreadLocalRandom.current().nextInt(0, 1000);
-        return "Hello from Java! Here is a random number: " + random;
+    @RequestMapping(path="/v1/resource", produces="application/json")
+    public String resource() {
+        var uuid = UUID.randomUUID().toString();
+        return "{\"id\":\"" + uuid + "\", \"name\": \"Hello from Java!\"}";
     }
 }
