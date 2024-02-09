@@ -20,7 +20,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
-          file: ./apis/go/Dockerfile
+          file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_TAG_GO_API }}
-          context: "{{defaultContext}}:/apis/go"
+          context: "{{defaultContext}}:apis/go"
