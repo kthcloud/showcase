@@ -3,6 +3,7 @@ import {
   Box,
   Container,
   Link,
+  Stack,
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -34,8 +35,10 @@ export const FrontPage = () => {
         </AppBar>
       </Box>
       <Container sx={{ p: 5 }}>
-        <CreateMessage />
-        <MessageList />
+        <Stack direction="column" spacing={2} alignItems="flex-start">
+          <CreateMessage />
+          <MessageList />
+        </Stack>
       </Container>
     </>
   );

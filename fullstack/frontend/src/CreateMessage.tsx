@@ -17,7 +17,7 @@ export const CreateMessage = () => {
   };
 
   return (
-    <Stack direction="column" spacing={2}>
+    <Stack direction="column" spacing={2} alignItems="flex-start">
       <Typography variant="h4">Create a message</Typography>
       {error && (
         <Typography variant="body1" sx={{ color: "coral" }}>

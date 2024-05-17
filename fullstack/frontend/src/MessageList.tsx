@@ -13,7 +13,7 @@ export const MessageList = () => {
       setError(JSON.stringify(e, null, 2));
     }
   };
-  
+
   useEffect(() => {
     load();
   }, []);
@@ -24,7 +24,7 @@ export const MessageList = () => {
     </Typography>;
   }
   return (
-    <Stack direction="column" spacing={2}>
+    <Stack direction="column" spacing={2} alignItems="flex-start">
       <Button variant="contained" color="primary" onClick={load}>
         Load messages
       </Button>
