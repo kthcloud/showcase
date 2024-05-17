@@ -8,7 +8,7 @@ app = Flask(__name__)
 # Set your MONGO_URI env in kthcloud
 MONGO_URI = os.getenv("MONGO_URI")
 client = MongoClient(MONGO_URI)
-db = client.get_default_database()
+db = client.get_database("showcase")
 messages = db.get_collection("messages")
 
 
