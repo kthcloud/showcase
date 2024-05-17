@@ -34,7 +34,7 @@ export const MessageList = () => {
       </Button>
 
       {messages.map((message, index) => (
-        <Chip key={index} label={message} />
+        <Chip key={index} label={JSON.stringify(message, null, 2)} />
       ))}
     </Stack>
   );
