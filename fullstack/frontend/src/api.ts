@@ -6,7 +6,7 @@ export const uploadMessage = async (message: string) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: message,
+    body: JSON.stringify({ message: message }),
   });
   if (!response.ok) {
     throw "Failed to upload message";
