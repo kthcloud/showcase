@@ -7,6 +7,7 @@ export const MessageList = () => {
   const [error, setError] = useState<string>("");
   const load = async () => {
     try {
+      setError("");
       const messageList = await fetchMessages();
       setMessages(messageList);
     } catch (e: unknown) {
@@ -19,10 +20,13 @@ export const MessageList = () => {
   }, []);
 
   if (error) {
-    <Typography variant="body1" sx={{ color: "coral" }}>
-      <pre>{error}</pre>
-    </Typography>;
+    return (
+      <Typography variant="body1" sx={{ color: "coral" }}>
+        <pre>{error}</pre>
+      </Typography>
+    );
   }
+
   return (
     <Stack direction="column" spacing={2} alignItems="flex-start">
       <Button variant="contained" color="primary" onClick={load}>
