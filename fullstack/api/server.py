@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Import the CORS library
 from pymongo import MongoClient
 from datetime import datetime
 import os
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
 # Set your MONGO_URI env in kthcloud
 MONGO_URI = os.getenv("MONGO_URI")
