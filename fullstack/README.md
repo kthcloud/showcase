@@ -23,7 +23,7 @@ Name: db-data
 App path: /data/db
 Storage path: /fullstack/db
 ```
-Set the mongodb deployment to use Private visibility as it will not be accessed from the outside.
+Set the mongodb deployment to use Private visibility as it will not be accessed from the outside. You may need to create the volumes, if you see a Mount error, which can be done by clicking "Manage Storage" and creating the appropriate directories.
 Your mongodb URI will be something like `mongodb://username:password@<db-deployment-name>:27017/<MONGO_INITDB_DATABASE>`.
 
 Create your mongo-express deployment, with `mongo-express` as the image, and link it to your database deployment. Add the environment variable `ME_CONFIG_MONGODB_URL`, and specify a username and password for the UI, in `ME_CONFIG_BASICAUTH_USERNAME` and `ME_CONFIG_BASICAUTH_PASSWORD` as explained [here](https://github.com/mongo-express/mongo-express-docker/blob/master/README.md).
