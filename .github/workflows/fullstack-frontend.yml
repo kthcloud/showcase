@@ -1,0 +1,26 @@
+name: fullstack-frontend
+"on":
+  push:
+    branches:
+      - main
+    paths:
+      - fullstack/frontend/**
+      - .github/workflows/fullstack-frontend.yml
+  workflow_dispatch:
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          registry: registry.cloud.cbh.kth.se
+          username: ${{ secrets.DOCKER_USERNAME_FULLSTACK_FRONTEND }}
+          password: ${{ secrets.DOCKER_PASSWORD_FULLSTACK_FRONTEND }}
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_TAG_FULLSTACK_FRONTEND }}
+          context: "{{defaultContext}}:fullstack/frontend"

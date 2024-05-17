@@ -1,6 +1,9 @@
 # 🤸 kthcloud/showcase
 Example projects on kthcloud - Take a look and get started deploying on kthcloud!
 
+## Fullstack
+This showcase will show you how to use kthcloud to setup a fullstack application. See the [instructions](/fullstack/README.md)
+
 ## Websockets
 The websockets example shows how websockets can be used, and are automatically upgraded to wss, http is also upgraded to https by our proxy.
 
